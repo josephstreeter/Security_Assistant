@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 import asyncio
 from azure.identity import InteractiveBrowserCredential
 from msgraph.graph_service_client import GraphServiceClient
@@ -29,9 +31,11 @@ _ALL_SCOPES = [
     'Notes.Read',
 ]
 
+load_dotenv()
+
 _credential = InteractiveBrowserCredential(
-    client_id="REDACTED_CLIENT_ID",
-    tenant_id="REDACTED_TENANT_ID",
+    client_id = os.getenv("client_id"),
+    tenant_id = os.getenv("tenant_id"),
     # redirect_uri="http://localhost"
 )
 
