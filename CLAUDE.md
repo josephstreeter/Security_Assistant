@@ -26,7 +26,7 @@ Three-layer design:
 - **`modules/personal_assistant.py`** — Microsoft Graph client for productivity data. Handles user profile, sign-in logs, To Do tasks (read/create/complete), email (read/send/search), calendar (read/create), contacts, OneDrive files (recent/search), Teams (chats/messages/channels), user presence, relevant people, trending files, and OneNote (notebooks/pages).
 - **`modules/security_assistant.py`** — Microsoft Graph client for security and compliance data. Handles advanced threat hunting (KQL queries), security alerts, risky users, directory audit logs, Intune managed devices, and Conditional Access policies.
 
-Each module maintains its own `GraphServiceClient` instance with separate scope sets. Authentication uses `InteractiveBrowserCredential` with hardcoded Azure app credentials (client ID `REDACTED_CLIENT_ID`, tenant ID `REDACTED_TENANT_ID`).
+Each module maintains its own `GraphServiceClient` instance with separate scope sets. Authentication uses `InteractiveBrowserCredential` with Azure app credentials loaded from environment variables (`client_id` and `tenant_id` in `.env`).
 
 ### Scopes
 
